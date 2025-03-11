@@ -6,282 +6,138 @@
   <title>My Portfolio</title>
   <style>
     /* General Styles */
-:root {
-    --primary-color: #0073e6;
-    --secondary-color: #333;
-    --background-color: #f4f4f4;
-    --text-color: #333;
-    --light-text-color: #fff;
-    --hover-color: #005bb5;
-    --transition-speed: 0.3s;
-  }
-  
-  [data-theme="dark"] {
-    --primary-color: #1e90ff;
-    --secondary-color: #1a1a1a;
-    --background-color: #121212;
-    --text-color: #f4f4f4;
-    --light-text-color: #f4f4f4;
-    --hover-color: #0073e6;
-  }
-  
-  body {
-    font-family: 'Poppins', Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    transition: background-color var(--transition-speed), color var(--transition-speed);
-  }
-  
-  header {
-    background: var(--secondary-color);
-    color: var(--light-text-color);
-    padding: 1rem 0;
-    text-align: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  nav ul li {
-    display: inline;
-    margin: 0 15px;
-  }
-  
-  nav ul li a {
-    color: var(--light-text-color);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color var(--transition-speed);
-  }
-  
-  nav ul li a:hover {
-    color: var(--primary-color);
-  }
-  
-  .hero {
-    background: var(--primary-color);
-    color: var(--light-text-color);
-    padding: 4rem 2rem;
-    text-align: center;
-    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-  }
-  
-  .hero-content h1 {
-    font-size: 3rem;
-    margin: 0;
-    animation: fadeIn 1.5s ease-in-out;
-  }
-  
-  .hero-content p {
-    font-size: 1.5rem;
-    margin: 1rem 0;
-    animation: fadeIn 2s ease-in-out;
-  }
-  
-  .btn {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    background: var(--light-text-color);
-    color: var(--primary-color);
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: 600;
-    transition: background var(--transition-speed), color var(--transition-speed);
-  }
-  
-  .btn:hover {
-    background: var(--hover-color);
-    color: var(--light-text-color);
-  }
-  
-  .about, .projects, .contact {
-    padding: 4rem 2rem;
-    text-align: center;
-  }
-  
-  .about-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-  }
-  
-  .about-content img {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border: 4px solid var(--primary-color);
-    transition: transform var(--transition-speed);
-  }
-  
-  .about-content img:hover {
-    transform: scale(1.1);
-  }
-  
-  .about-content p {
-    max-width: 600px;
-    text-align: left;
-  }
-  
-  .project-grid {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 2rem;
-  }
-  
-  .project-card {
-    background: var(--secondary-color);
-    color: var(--light-text-color);
-    padding: 1.5rem;
-    border-radius: 10px;
-    width: 300px;
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-  }
-  
-  .project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  }
-  
-  .project-card h3 {
-    margin: 0 0 1rem;
-    font-size: 1.5rem;
-  }
-  
-  .project-card p {
-    margin: 0;
-  }
-  
-  .contact form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
-  .contact form input, .contact form textarea {
-    width: 100%;
-    padding: 0.75rem;
-    margin: 0.5rem 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background: var(--background-color);
-    color: var(--text-color);
-    transition: border-color var(--transition-speed);
-  }
-  
-  .contact form input:focus, .contact form textarea:focus {
-    border-color: var(--primary-color);
-    outline: none;
-  }
-  
-  .contact form button {
-    padding: 0.75rem 1.5rem;
-    background: var(--primary-color);
-    color: var(--light-text-color);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background var(--transition-speed);
-  }
-  
-  .contact form button:hover {
-    background: var(--hover-color);
-  }
-  
-  footer {
-    background: var(--secondary-color);
-    color: var(--light-text-color);
-    text-align: center;
-    padding: 1rem 0;
-    margin-top: 2rem;
-  }
-  
-  .social-links img {
-    width: 24px;
-    height: 24px;
-    margin: 0 10px;
-    transition: transform var(--transition-speed);
-  }
-  
-  .social-links img:hover {
-    transform: scale(1.2);
-  }
-  
-  /* Dark/Light Mode Toggle */
-  .theme-toggle {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: var(--primary-color);
-    color: var(--light-text-color);
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    transition: background var(--transition-speed);
-  }
-  
-  .theme-toggle:hover {
-    background: var(--hover-color);
-  }
-  
-  /* Animations */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
+ <style>
+    /* Add these new styles to enhance UI */
+
+    /* Improved Hero Section */
+    .hero {
+      position: relative;
+      overflow: hidden;
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        45deg,
+        var(--primary-color),
+        var(--hover-color),
+        var(--primary-color)
+      );
+      animation: gradientShift 15s ease infinite;
+      opacity: 0.1;
     }
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .hero-content h1 {
-      font-size: 2rem;
-    }
-  
-    .hero-content p {
-      font-size: 1.2rem;
-    }
-  
-    .about-content {
-      flex-direction: column;
-      text-align: center;
-    }
-  
-    .project-grid {
-      flex-direction: column;
-      align-items: center;
-    }
-  
+
+    /* Animated Project Cards */
     .project-card {
-      width: 100%;
+      position: relative;
+      overflow: hidden;
     }
-  }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.2),
+        transparent
+      );
+      transition: 0.5s;
+    }
+
+    .project-card:hover::before {
+      left: 100%;
+    }
+
+    /* Enhanced Form Inputs */
+    .contact form input,
+    .contact form textarea {
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .contact form input:focus,
+    .contact form textarea:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 8px rgba(0, 115, 230, 0.3);
+    }
+
+    /* Scroll Progress Indicator */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: var(--primary-color);
+      z-index: 9999;
+      transition: width 0.3s ease;
+    }
+
+    /* Skill Bars */
+    .skill-bars {
+      width: 100%;
+      max-width: 600px;
+      margin: 2rem auto;
+    }
+
+    .skill-bar {
+      margin: 1rem 0;
+    }
+
+    .skill-bar-label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-bar-track {
+      height: 10px;
+      background: #ddd;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .skill-bar-progress {
+      height: 100%;
+      background: var(--primary-color);
+      transition: width 1s ease-in-out;
+    }
+
+    /* New Animations */
+    @keyframes gradientShift {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes slideIn {
+      from { transform: translateX(-100%); }
+      to { transform: translateX(0); }
+    }
+
+    /* Additional Responsive Features */
+    @media (max-width: 480px) {
+      .hero-content h1 {
+        font-size: 1.8rem;
+      }
+      
+      .hero-content p {
+        font-size: 1.1rem;
+      }
+      
+      .btn {
+        padding: 0.6rem 1.2rem;
+      }
+    }
+  </style>
   </style>
   <link rel="stylesheet" href="style.css">
 </head>
